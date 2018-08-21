@@ -4,3 +4,4 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   module.exports = require('./configureStore.dev'); // eslint-disable-line global-require
 }
+// module.exports = require('./configureStore.dev');

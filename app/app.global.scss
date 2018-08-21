@@ -1,0 +1,20 @@
+@import "~font-awesome/css/font-awesome.css";
+@import "~flag-icon-css/css/flag-icon.min.css";
+//// Import Font Awesome Icons Set
+//@import "~font-awesome/css/font-awesome.min.css";
+//// Import Simple Line Icons Set
+@import "~simple-line-icons/css/simple-line-icons.css";
+@import "./scss/style.scss";
+//// Temp fix for reactstrap
+@import "./scss/core/_dropdown-menu-right.scss";
+
+@import "node_modules/react-toastify/scss/main.scss";
+@import "node_modules/react-select/scss/default.scss";
+.history-item{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  *{
+    margin: 0px;
+  }
+}

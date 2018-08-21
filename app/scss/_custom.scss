@@ -1,0 +1,34 @@
+// Here you can add other styles
+
+.navbar{
+  justify-content: flex-start!important;
+}
+header .nav-item a:not(.active){
+  color: #151b1e;
+}
+.main{
+  background-color: white;
+}
+.label{
+  width: 20px;
+  height: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: transparent;
+  background-size: contain;
+  background-position: center;
+  &-error{
+    background-image: url(./img/cancel.svg);
+  }
+  &-success{
+    background-image: url(./img/checked.svg);
+  }
+}
+.react-datepicker-wrapper, .react-datepicker__input-container{
+  width:100%!important;
+}
+.app-header.navbar .navbar-brand{
+  background-image: url(./img/tooth.svg);
+  background-size: contain;
+}

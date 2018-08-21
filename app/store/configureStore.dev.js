@@ -1,13 +1,15 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { createHashHistory } from 'history';
+import { createBrowserHistory } from 'history';
 import { routerMiddleware, routerActions } from 'react-router-redux';
 import { createLogger } from 'redux-logger';
 import rootReducer from '../reducers';
 import * as counterActions from '../actions/counter';
-import type { counterStateType } from '../reducers/types';
-
-const history = createHashHistory();
+import type { counterStateType } from '../reducers/counter';
+console.log('мы в деве')
+const history = createBrowserHistory({
+  basename: window.location.pathname
+});
 
 const configureStore = (initialState?: counterStateType) => {
   // Redux Configuration
@@ -35,15 +37,15 @@ const configureStore = (initialState?: counterStateType) => {
   // Redux DevTools Configuration
   const actionCreators = {
     ...counterActions,
-    ...routerActions
+    ...routerActions,
   };
   // If Redux DevTools Extension is installed use it, otherwise use Redux compose
   /* eslint-disable no-underscore-dangle */
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-        // Options: http://extension.remotedev.io/docs/API/Arguments.html
-        actionCreators
-      })
+      // Options: http://zalmoxisus.github.io/redux-devtools-extension/API/Arguments.html
+      actionCreators,
+    })
     : compose;
   /* eslint-enable no-underscore-dangle */
 
@@ -55,10 +57,8 @@ const configureStore = (initialState?: counterStateType) => {
   const store = createStore(rootReducer, initialState, enhancer);
 
   if (module.hot) {
-    module.hot.accept(
-      '../reducers',
-      () => store.replaceReducer(require('../reducers')) // eslint-disable-line global-require
-    );
+    module.hot.accept('../reducers', () =>
+      store.replaceReducer(require('../reducers'))); // eslint-disable-line global-require
   }
 
   return store;

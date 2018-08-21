@@ -1,15 +1,28 @@
 // @flow
 import * as React from 'react';
+import 'react-datepicker/dist/react-datepicker.css'
+import { withRouter } from 'react-router'
+import { connect } from 'react-redux'
+import { getAllClients } from '../actions/clients'
+import { getAllPrice } from '../actions/price'
 
 type Props = {
   children: React.Node
 };
 
-export default class App extends React.Component<Props> {
+class App extends React.Component<Props> {
   props: Props;
-
+  componentDidMount(){
+    this.props.getAllClients()
+    this.props.getAllPrice()
+  }
   render() {
-    const { children } = this.props;
-    return <React.Fragment>{children}</React.Fragment>;
+    return (
+      <div>
+        {this.props.children}
+      </div>
+    );
   }
 }
+
+export default withRouter(connect(null, { getAllClients, getAllPrice })(App));

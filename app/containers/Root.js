@@ -1,21 +1,19 @@
 // @flow
-import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
-import type { Store } from '../reducers/types';
-import Routes from '../Routes';
+import React, { Component } from 'react'
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'react-router-redux'
+import Routes from '../routes'
 
 type Props = {
-  store: Store,
+  store: {},
   history: {}
 };
 
 export default class Root extends Component<Props> {
   render() {
-    const { store, history } = this.props;
     return (
-      <Provider store={store}>
-        <ConnectedRouter history={history}>
+      <Provider store={this.props.store}>
+        <ConnectedRouter history={this.props.history}>
           <Routes />
         </ConnectedRouter>
       </Provider>

@@ -29,7 +29,6 @@ exports[`Counter component should match exact snapshot 1`] = `
         className="btn"
         data-tclass="btn"
         onClick={[Function]}
-        type="button"
       >
         <i
           className="fa fa-plus"
@@ -39,7 +38,6 @@ exports[`Counter component should match exact snapshot 1`] = `
         className="btn"
         data-tclass="btn"
         onClick={[Function]}
-        type="button"
       >
         <i
           className="fa fa-minus"
@@ -49,7 +47,6 @@ exports[`Counter component should match exact snapshot 1`] = `
         className="btn"
         data-tclass="btn"
         onClick={[Function]}
-        type="button"
       >
         odd
       </button>
@@ -57,7 +54,6 @@ exports[`Counter component should match exact snapshot 1`] = `
         className="btn"
         data-tclass="btn"
         onClick={[Function]}
-        type="button"
       >
         async
       </button>
